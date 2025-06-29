@@ -12,7 +12,8 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
-                echo "doing build stuff.."
+                apk add maven
+                mvn package
                 '''
             }
         }
@@ -20,7 +21,7 @@ pipeline {
             steps {
                 echo "Testing.."
                 sh '''
-                echo "doing test stuff.."
+                java -jar target/my-app-1.0-SNAPSHOT.jar
                 '''
             }
         }
